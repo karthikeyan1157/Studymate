@@ -1,0 +1,330 @@
+[
+  {
+    "id": "ml_001",
+    "topic": "Machine Learning",
+    "subtopic": "Regularization",
+    "difficulty": "medium",
+    "question": "What is the difference between L1 and L2 regularization?",
+    "answer": "L1 (Lasso) adds the absolute value of weights to the loss, producing sparse models by zeroing out less important features. L2 (Ridge) adds squared weights, penalizing large weights smoothly without zero-ing them out. L1 is preferred for feature selection; L2 for general overfitting control."
+  },
+  {
+    "id": "ml_002",
+    "topic": "Machine Learning",
+    "subtopic": "Overfitting",
+    "difficulty": "easy",
+    "question": "A model performs well on training data but poorly on test data. What is this called and how do you fix it?",
+    "answer": "Overfitting. Fix with more data, dropout, regularization (L1/L2), early stopping, cross-validation, reducing model complexity, or data augmentation."
+  },
+  {
+    "id": "ml_003",
+    "topic": "Machine Learning",
+    "subtopic": "Bias-Variance Tradeoff",
+    "difficulty": "medium",
+    "question": "Explain the bias-variance tradeoff in machine learning.",
+    "answer": "Bias is error from wrong assumptions (underfitting). Variance is error from sensitivity to training data fluctuations (overfitting). High bias → simple model misses patterns. High variance → complex model memorizes noise. Good models balance both to minimize total error."
+  },
+  {
+    "id": "ml_004",
+    "topic": "Machine Learning",
+    "subtopic": "Cross Validation",
+    "difficulty": "easy",
+    "question": "What is k-fold cross-validation and why is it used?",
+    "answer": "K-fold CV splits data into k equal folds, trains on k-1 folds, validates on 1 fold, rotating k times. Final score is the average across all folds. Used to get reliable performance estimates on limited data and reduce variance in evaluation."
+  },
+  {
+    "id": "ml_005",
+    "topic": "Machine Learning",
+    "subtopic": "Feature Engineering",
+    "difficulty": "medium",
+    "question": "What is feature scaling and when should you apply it?",
+    "answer": "Feature scaling normalizes the range of features. Min-Max scaling maps to [0,1]; Standardization (Z-score) gives mean=0, std=1. Apply when using gradient-descent-based algorithms (linear/logistic regression, SVM, neural nets, KNN) to prevent features with large ranges dominating learning."
+  },
+  {
+    "id": "ml_006",
+    "topic": "Machine Learning",
+    "subtopic": "Evaluation Metrics",
+    "difficulty": "medium",
+    "question": "What is the difference between precision and recall? When do you prioritize each?",
+    "answer": "Precision = TP/(TP+FP): of all predicted positives, how many are real positives. Recall = TP/(TP+FN): of all actual positives, how many did we catch. Prioritize precision when false positives are costly (spam detection). Prioritize recall when missing positives is critical (cancer screening)."
+  },
+  {
+    "id": "ml_007",
+    "topic": "Machine Learning",
+    "subtopic": "Decision Trees",
+    "difficulty": "medium",
+    "question": "What is Gini impurity and how is it used in decision trees?",
+    "answer": "Gini impurity measures how often a randomly chosen element would be misclassified. Ranges 0 (pure) to 0.5 (max impurity). Decision trees split nodes to minimize Gini impurity, choosing the feature and threshold that results in the purest child nodes."
+  },
+  {
+    "id": "ml_008",
+    "topic": "Machine Learning",
+    "subtopic": "Ensemble Methods",
+    "difficulty": "hard",
+    "question": "What is the difference between bagging and boosting?",
+    "answer": "Bagging (Bootstrap Aggregating) trains models in parallel on random subsets and averages results — reduces variance (e.g., Random Forest). Boosting trains models sequentially, each fixing errors of the previous — reduces bias (e.g., XGBoost, AdaBoost). Boosting is usually more accurate but prone to overfitting."
+  },
+  {
+    "id": "dl_001",
+    "topic": "Deep Learning",
+    "subtopic": "Backpropagation",
+    "difficulty": "medium",
+    "question": "Explain backpropagation in neural networks.",
+    "answer": "Backpropagation computes gradients of the loss w.r.t. each weight using the chain rule. Starting from the output layer, it propagates error backward through layers, updating weights via gradient descent. It requires a differentiable activation function and a defined loss function."
+  },
+  {
+    "id": "dl_002",
+    "topic": "Deep Learning",
+    "subtopic": "Activation Functions",
+    "difficulty": "medium",
+    "question": "What is the vanishing gradient problem and how do ReLU activations help?",
+    "answer": "In deep networks with sigmoid/tanh, gradients shrink exponentially during backpropagation, making early layers learn very slowly. ReLU outputs max(0,x), so its gradient is 1 for positive inputs and 0 otherwise — avoiding gradient shrinkage for positive activations and enabling faster training."
+  },
+  {
+    "id": "dl_003",
+    "topic": "Deep Learning",
+    "subtopic": "Optimization",
+    "difficulty": "hard",
+    "question": "Compare SGD, Adam, and RMSProp optimizers.",
+    "answer": "SGD: updates weights using gradient of one batch — simple but noisy. RMSProp: adapts learning rate using moving average of squared gradients — good for recurrent nets. Adam: combines momentum (first moment) and RMSProp (second moment) — generally best default optimizer for most deep learning tasks."
+  },
+  {
+    "id": "dl_004",
+    "topic": "Deep Learning",
+    "subtopic": "CNN",
+    "difficulty": "medium",
+    "question": "What are the key components of a Convolutional Neural Network (CNN)?",
+    "answer": "CNN components: Convolutional layers (apply filters to detect local patterns), Activation (ReLU), Pooling layers (downsample spatial dimensions), Fully Connected layers (classification), Dropout (regularization). Convolutions are translation-invariant and share weights — making CNNs efficient for images."
+  },
+  {
+    "id": "dl_005",
+    "topic": "Deep Learning",
+    "subtopic": "Dropout",
+    "difficulty": "easy",
+    "question": "What is dropout in neural networks and why is it used?",
+    "answer": "Dropout randomly sets a fraction of neurons to zero during training, forcing the network to learn redundant representations. This prevents co-adaptation of neurons, acting as ensemble-like regularization. At inference, all neurons are used (but outputs are scaled). Reduces overfitting significantly."
+  },
+  {
+    "id": "dl_006",
+    "topic": "Deep Learning",
+    "subtopic": "Transformers",
+    "difficulty": "hard",
+    "question": "What is the self-attention mechanism in Transformers?",
+    "answer": "Self-attention allows each token to attend to every other token in the sequence. For each token, Query (Q), Key (K), and Value (V) vectors are computed. Attention weights = softmax(QK^T / sqrt(d_k)). Output = weighted sum of V. This captures long-range dependencies without recurrence, enabling parallelization."
+  },
+  {
+    "id": "ds_001",
+    "topic": "Data Structures",
+    "subtopic": "Arrays vs Linked Lists",
+    "difficulty": "easy",
+    "question": "What are the time complexity differences between arrays and linked lists for common operations?",
+    "answer": "Array: O(1) access, O(n) insert/delete (due to shifting). Linked List: O(n) access (traversal), O(1) insert/delete at head. Dynamic arrays (e.g. Python list) amortize appends to O(1). Use arrays for random access; linked lists when frequent insertions/deletions at arbitrary positions."
+  },
+  {
+    "id": "ds_002",
+    "topic": "Data Structures",
+    "subtopic": "Hash Tables",
+    "difficulty": "medium",
+    "question": "How does a hash table handle collisions? Explain chaining and open addressing.",
+    "answer": "Chaining: each bucket holds a linked list of entries; all colliding keys go to the same bucket's list. Open Addressing (linear/quadratic probing, double hashing): on collision, probe the array for the next available slot. Chaining is simpler; open addressing has better cache locality."
+  },
+  {
+    "id": "ds_003",
+    "topic": "Data Structures",
+    "subtopic": "Trees",
+    "difficulty": "medium",
+    "question": "What is a balanced BST and why is balancing important?",
+    "answer": "A balanced BST (e.g. AVL tree, Red-Black tree) maintains height ≈ O(log n) by rotating nodes after insertions/deletions. Without balancing, a BST degenerates to O(n) height (linked list). Balanced trees guarantee O(log n) search, insert, and delete."
+  },
+  {
+    "id": "ds_004",
+    "topic": "Data Structures",
+    "subtopic": "Heaps",
+    "difficulty": "medium",
+    "question": "What is a heap and how is it used to implement a priority queue?",
+    "answer": "A binary heap is a complete binary tree satisfying the heap property (max-heap: parent ≥ children). Stored as an array. insert: add at end + bubble up — O(log n). extract-max: swap root with last + heapify down — O(log n). Peek (max): O(1). Priority queues are implemented using min or max heaps."
+  },
+  {
+    "id": "ds_005",
+    "topic": "Data Structures",
+    "subtopic": "Graphs",
+    "difficulty": "medium",
+    "question": "Compare BFS and DFS for graph traversal. When do you use each?",
+    "answer": "BFS (queue-based): explores level by level — finds shortest path in unweighted graphs, O(V+E). DFS (stack/recursion): explores depth-first — useful for cycle detection, topological sort, connected components. BFS for shortest paths; DFS for exploring all paths, backtracking, and topology."
+  },
+  {
+    "id": "algo_001",
+    "topic": "Algorithms",
+    "subtopic": "Sorting",
+    "difficulty": "easy",
+    "question": "What is the time complexity of QuickSort in best, average, and worst cases?",
+    "answer": "QuickSort: Best O(n log n) with balanced partitions, Average O(n log n), Worst O(n²) when pivot is always min/max (sorted array with bad pivot). Randomized pivoting avoids worst case. In-place (O(log n) stack space). Usually faster than MergeSort in practice due to better cache behavior."
+  },
+  {
+    "id": "algo_002",
+    "topic": "Algorithms",
+    "subtopic": "Dynamic Programming",
+    "difficulty": "hard",
+    "question": "What is dynamic programming? Explain memoization vs tabulation.",
+    "answer": "DP solves problems by breaking them into overlapping subproblems, storing results to avoid recomputation. Memoization (top-down): recursive, stores results in a cache as needed — lazy. Tabulation (bottom-up): iterative, fills a table from base cases up — no recursion overhead. Both achieve same complexity."
+  },
+  {
+    "id": "algo_003",
+    "topic": "Algorithms",
+    "subtopic": "Graph Algorithms",
+    "difficulty": "medium",
+    "question": "Explain Dijkstra's algorithm. What are its requirements and time complexity?",
+    "answer": "Dijkstra finds shortest paths from source to all nodes in a weighted graph. Uses a min-priority queue. Greedily picks nearest unvisited node, relaxes neighbors. Requires non-negative edge weights. Time: O((V + E) log V) with a binary heap. Fails with negative weights — use Bellman-Ford instead."
+  },
+  {
+    "id": "algo_004",
+    "topic": "Algorithms",
+    "subtopic": "Searching",
+    "difficulty": "easy",
+    "question": "How does binary search work? What are its requirements and complexity?",
+    "answer": "Binary search works on a sorted array. Each step compares the middle element with the target: if equal → found; if less → search right half; if more → search left half. Halves the search space each step → O(log n) time, O(1) space (iterative). Requires the array to be sorted."
+  },
+  {
+    "id": "algo_005",
+    "topic": "Algorithms",
+    "subtopic": "Complexity",
+    "difficulty": "medium",
+    "question": "What is the difference between P, NP, and NP-Complete problems?",
+    "answer": "P: problems solvable in polynomial time (e.g., sorting). NP: problems verifiable in polynomial time but may not be solvable in poly time (e.g., SAT). NP-Complete: the hardest problems in NP — every NP problem reduces to them (e.g., TSP, knapsack). P vs NP is unsolved. If any NP-C problem is in P, then P=NP."
+  },
+  {
+    "id": "os_001",
+    "topic": "Operating Systems",
+    "subtopic": "Process vs Thread",
+    "difficulty": "easy",
+    "question": "What is the difference between a process and a thread?",
+    "answer": "A process is an independent program in execution with its own memory space. A thread is a lightweight unit of execution within a process, sharing the process's memory. Context-switching threads is faster than processes. Threads communicate via shared memory; processes use IPC (pipes, sockets, semaphores)."
+  },
+  {
+    "id": "os_002",
+    "topic": "Operating Systems",
+    "subtopic": "Deadlock",
+    "difficulty": "medium",
+    "question": "What are the four conditions for deadlock and how can it be prevented?",
+    "answer": "Four Coffman conditions: (1) Mutual Exclusion, (2) Hold and Wait, (3) No Preemption, (4) Circular Wait. Prevention: eliminate one condition — e.g., allow preemption, require all resources acquired at once, impose resource ordering to break circular wait. Detection + recovery is another approach."
+  },
+  {
+    "id": "os_003",
+    "topic": "Operating Systems",
+    "subtopic": "Memory Management",
+    "difficulty": "medium",
+    "question": "Explain virtual memory and how paging works.",
+    "answer": "Virtual memory gives each process an abstraction of a large, contiguous address space backed by disk. Paging divides virtual and physical memory into fixed-size pages/frames. The OS maintains a page table mapping virtual pages → physical frames. On a page fault, the OS loads the missing page from disk (swap)."
+  },
+  {
+    "id": "os_004",
+    "topic": "Operating Systems",
+    "subtopic": "Scheduling",
+    "difficulty": "medium",
+    "question": "Compare FCFS, SJF, and Round Robin CPU scheduling algorithms.",
+    "answer": "FCFS: simple queue, non-preemptive — suffers convoy effect (long jobs block short ones). SJF: schedules shortest burst next — optimal average wait time, but hard to predict. Round Robin: preemptive, gives each process a time quantum — good for time-sharing, responsive but more context switching overhead."
+  },
+  {
+    "id": "cn_001",
+    "topic": "Computer Networks",
+    "subtopic": "TCP vs UDP",
+    "difficulty": "easy",
+    "question": "What are the differences between TCP and UDP?",
+    "answer": "TCP: connection-oriented, reliable (ACKs, retransmission), ordered delivery, flow/congestion control — used for HTTP, email, file transfer. UDP: connectionless, unreliable (no ACKs), unordered — lower latency, used for video streaming, gaming, DNS, VoIP where speed > reliability."
+  },
+  {
+    "id": "cn_002",
+    "topic": "Computer Networks",
+    "subtopic": "OSI Model",
+    "difficulty": "easy",
+    "question": "Name the 7 layers of the OSI model and give one example of each.",
+    "answer": "1. Physical (cables, hubs) 2. Data Link (Ethernet, MAC) 3. Network (IP, routers) 4. Transport (TCP, UDP) 5. Session (session management, NetBIOS) 6. Presentation (SSL/TLS, JPEG encoding) 7. Application (HTTP, FTP, DNS, SMTP)"
+  },
+  {
+    "id": "cn_003",
+    "topic": "Computer Networks",
+    "subtopic": "HTTP",
+    "difficulty": "medium",
+    "question": "What is the difference between HTTP/1.1, HTTP/2, and HTTP/3?",
+    "answer": "HTTP/1.1: one request per connection (HOL blocking), persistent connections with pipelining. HTTP/2: multiplexing — multiple streams over single TCP connection, header compression (HPACK), server push. HTTP/3: built on QUIC (UDP-based), eliminates TCP HOL blocking, better for lossy networks and mobile."
+  },
+  {
+    "id": "cn_004",
+    "topic": "Computer Networks",
+    "subtopic": "DNS",
+    "difficulty": "easy",
+    "question": "How does DNS resolution work step-by-step?",
+    "answer": "1. Browser checks local cache. 2. OS queries recursive resolver (ISP). 3. Resolver queries root nameserver → TLD nameserver (.com) → authoritative nameserver for the domain. 4. Authoritative server returns IP. 5. Resolver caches and returns IP to client. 6. Browser connects to the IP."
+  },
+  {
+    "id": "cn_005",
+    "topic": "Computer Networks",
+    "subtopic": "Congestion Control",
+    "difficulty": "hard",
+    "question": "Explain TCP's congestion control mechanism.",
+    "answer": "TCP uses: Slow Start (exponentially grow cwnd until ssthresh), Congestion Avoidance (linear cwnd increase after ssthresh), Fast Retransmit (retransmit on 3 duplicate ACKs without waiting for timeout), Fast Recovery (halve cwnd on loss, skip slow start). Goal: probe for available bandwidth while reacting to congestion."
+  },
+  {
+    "id": "ml_009",
+    "topic": "Machine Learning",
+    "subtopic": "SVM",
+    "difficulty": "hard",
+    "question": "Explain the kernel trick in Support Vector Machines.",
+    "answer": "SVMs find a hyperplane maximizing the margin between classes. In non-linearly separable data, the kernel trick maps inputs to a higher-dimensional space implicitly (via kernel function K(x,y) = φ(x)·φ(y)) without computing the transformation. Common kernels: RBF (Gaussian), polynomial, sigmoid. Saves computation while enabling non-linear boundaries."
+  },
+  {
+    "id": "ml_010",
+    "topic": "Machine Learning",
+    "subtopic": "Clustering",
+    "difficulty": "medium",
+    "question": "How does K-Means clustering work and what are its limitations?",
+    "answer": "K-Means: (1) randomly initialize k centroids, (2) assign each point to nearest centroid, (3) update centroids to cluster means, (4) repeat until convergence. Limitations: requires k to be specified, sensitive to initialization (use k-means++), assumes spherical clusters, doesn't handle noise/outliers well, struggles with varying density clusters."
+  },
+  {
+    "id": "dl_007",
+    "topic": "Deep Learning",
+    "subtopic": "Batch Normalization",
+    "difficulty": "medium",
+    "question": "What is Batch Normalization and why does it help training?",
+    "answer": "BatchNorm normalizes activations within a mini-batch to have mean=0, std=1, then applies learnable scale (γ) and shift (β). Benefits: reduces internal covariate shift, allows higher learning rates, acts as regularizer (reduces need for dropout), stabilizes training in deep networks. Applied before or after activation functions."
+  },
+  {
+    "id": "algo_006",
+    "topic": "Algorithms",
+    "subtopic": "Recursion",
+    "difficulty": "medium",
+    "question": "What is memoization and how does it improve recursive algorithms?",
+    "answer": "Memoization caches the results of expensive function calls and returns the cached result when the same inputs occur again. Transforms exponential-time recursive algorithms (like naive Fibonacci O(2^n)) into polynomial time (O(n)) by avoiding redundant subproblem recomputation. It is the top-down form of dynamic programming."
+  },
+  {
+    "id": "ds_006",
+    "topic": "Data Structures",
+    "subtopic": "Stacks and Queues",
+    "difficulty": "easy",
+    "question": "What is the difference between a stack and a queue? Give a real-world use case for each.",
+    "answer": "Stack: LIFO (Last In, First Out) — push/pop from top. Use: function call stack, undo/redo, DFS, expression parsing. Queue: FIFO (First In, First Out) — enqueue at back, dequeue from front. Use: BFS, task scheduling, printer queue, message queues in distributed systems."
+  },
+  {
+    "id": "ml_011",
+    "topic": "Machine Learning",
+    "subtopic": "Gradient Descent",
+    "difficulty": "medium",
+    "question": "What is gradient descent and what are its variants (batch, mini-batch, stochastic)?",
+    "answer": "Gradient Descent minimizes loss by iteratively updating parameters in the direction of negative gradient. Batch GD: uses all data per step — accurate but slow. Stochastic GD (SGD): one sample per step — noisy but fast. Mini-batch GD: uses small batches — best of both worlds, most common in deep learning."
+  },
+  {
+    "id": "os_005",
+    "topic": "Operating Systems",
+    "subtopic": "Synchronization",
+    "difficulty": "medium",
+    "question": "What is a mutex and how does it differ from a semaphore?",
+    "answer": "Mutex (Mutual Exclusion): binary lock — only the thread that locked it can unlock it. Used to protect critical sections. Semaphore: a counter (counting semaphore) or binary — can be signaled by any thread. Used for signaling between threads (e.g., producer-consumer). Mutex provides ownership; semaphore does not."
+  },
+  {
+    "id": "ml_012",
+    "topic": "Machine Learning",
+    "subtopic": "PCA",
+    "difficulty": "hard",
+    "question": "How does Principal Component Analysis (PCA) work?",
+    "answer": "PCA finds directions (principal components) of maximum variance in data. Steps: (1) Standardize features, (2) Compute covariance matrix, (3) Find eigenvectors/eigenvalues, (4) Sort by eigenvalue descending, (5) Project data onto top-k eigenvectors. Reduces dimensionality while preserving maximum variance. Components are orthogonal."
+  }
+]
